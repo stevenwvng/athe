@@ -14,7 +14,10 @@ const FashionHero: React.FC = () => (
     </div>
     <WordFlower />
     <h1 className={styles.wordmark}>
-      everydayathe<span className={styles.mark}>®</span>
+      <span className={styles.primary}>
+        everydayathe<span className={styles.mark}>®</span>
+      </span>
+      <span className={styles.secondary}>lemon</span>
     </h1>
     <svg className={styles.grain} aria-hidden="true">
       <filter id="fashion-grain" x="0" y="0" width="100%" height="100%">

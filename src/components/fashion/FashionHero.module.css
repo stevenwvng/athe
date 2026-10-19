@@ -102,6 +102,18 @@
   animation: wordmark-in 1.6s ease-out both;
 }
 
+.primary,
+.secondary {
+  display: block;
+}
+
+.secondary {
+  margin-top: 0.22em;
+  font-size: 0.5em;
+  font-style: italic;
+  letter-spacing: 0.04em;
+}
+
 .mark {
   font-size: 0.16em;
   vertical-align: baseline;
