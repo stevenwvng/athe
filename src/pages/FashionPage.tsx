@@ -1,5 +1,6 @@
 import React from "react";
+import FashionHero from "../components/fashion/FashionHero";
 
-const FashionPage: React.FC = () => <div />;
+const FashionPage: React.FC = () => <FashionHero />;
 
 export default FashionPage;

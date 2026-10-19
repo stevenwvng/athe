@@ -1,0 +1,168 @@
+/* Full-bleed: escapes the padded, max-width <main> by pinning to the viewport.
+   TopNav (z-index 101) stays above it. */
+.hero {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  padding: 0;
+  overflow: hidden;
+  background: #6f7448;
+}
+
+.backdrop {
+  position: absolute;
+  inset: -10%;
+  filter: blur(70px);
+}
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  animation: drift 26s ease-in-out infinite alternate;
+}
+
+.blobSand {
+  width: 60%;
+  height: 45%;
+  left: -10%;
+  top: 8%;
+  background: radial-gradient(closest-side, #d9c98a, transparent);
+}
+
+.blobMoss {
+  width: 70%;
+  height: 60%;
+  left: 20%;
+  top: 0;
+  background: radial-gradient(closest-side, #8d9650, transparent);
+  animation-delay: -6s;
+}
+
+.blobSage {
+  width: 65%;
+  height: 50%;
+  left: 15%;
+  top: 38%;
+  background: radial-gradient(closest-side, #a7ad72, transparent);
+  animation-delay: -12s;
+}
+
+.blobSlate {
+  width: 45%;
+  height: 40%;
+  left: -8%;
+  top: 48%;
+  background: radial-gradient(closest-side, #6f8588, transparent);
+  animation-delay: -3s;
+}
+
+.blobCream {
+  width: 55%;
+  height: 40%;
+  right: -10%;
+  bottom: 0;
+  background: radial-gradient(closest-side, #e8dba2, transparent);
+  animation-delay: -9s;
+}
+
+.blobNight {
+  width: 60%;
+  height: 45%;
+  left: -10%;
+  bottom: -8%;
+  background: radial-gradient(closest-side, #1d2316, transparent);
+  animation-delay: -15s;
+}
+
+@keyframes drift {
+  from {
+    transform: translate3d(-3%, -2%, 0) scale(1);
+  }
+  to {
+    transform: translate3d(4%, 3%, 0) scale(1.08);
+  }
+}
+
+.wordmark {
+  position: absolute;
+  left: 50%;
+  top: 56%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  font-family: "Cormorant Garamond", "Times New Roman", Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(3.2rem, 13vw, 10rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  color: #fff;
+  white-space: nowrap;
+  text-shadow: 0 2px 40px rgba(40, 46, 20, 0.25);
+  pointer-events: none;
+  animation: wordmark-in 1.6s ease-out both;
+}
+
+.primary,
+.secondary {
+  display: block;
+}
+
+.secondary {
+  margin-top: 0.22em;
+  font-size: 0.5em;
+  font-style: italic;
+  letter-spacing: 0.04em;
+}
+
+.mark {
+  font-size: 0.16em;
+  vertical-align: baseline;
+  margin-left: 0.4em;
+  letter-spacing: 0;
+}
+
+.grain {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.3;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+@keyframes wordmark-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .backdrop {
+    filter: blur(50px);
+  }
+
+  .wordmark {
+    top: 54%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blob,
+  .wordmark {
+    animation: none;
+  }
+}
+
+/* The site nav is dark green on a light page; keep it legible over the hero. */
+:global(body):has(.hero) :global(nav) > ul a,
+:global(body):has(.hero) :global(nav) > button {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+:global(body):has(.hero) :global(nav) > ul a:global(.active) {
+  color: #fff;
+}
